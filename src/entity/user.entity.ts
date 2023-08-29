@@ -1,13 +1,21 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { RegisteredTime } from './registeredTime.entity';
 
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({length: 45})
     name: string;
 
-    @Column()
+    @Column({length: 45})
     email: string;
+
+    @Column({length: 45})
+    role: string;
+
+    @Column()
+    @OneToMany(() => RegisteredTime, registeredTime => registeredTime.user_id)
+    registeredTimes: [];
 }
