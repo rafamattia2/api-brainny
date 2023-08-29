@@ -4,15 +4,14 @@ import { User } from './user.entity';
 @Entity()
 export class RegisteredTime {
     @PrimaryGeneratedColumn()
+    id: number;
+
     @ManyToOne(() => User, user => user.registeredTimes)
     user_id: number;
 
-    @Column({length: 45})
-    name: string;
+    @Column({ type: 'timestamp' })
+    time_start: Date;
 
-    @Column({length: 45})
-    email: string;
-
-    @Column({length: 45})
-    role: string;
+    @Column({ type: 'timestamp'  })
+    time_end: Date;
 }
