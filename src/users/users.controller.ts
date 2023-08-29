@@ -15,10 +15,9 @@ export class UsersController {
     async findOne(@Param('id') id: number): Promise<User> {
         const user = await this.usersService.findOne(id);
         if(!user) {
-            throw new Error('User not found');
-        } else {
-            return user;
+            throw new Error('User not found');    
         }
+        return user;
     }
 
     @Post()

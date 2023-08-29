@@ -5,8 +5,10 @@ import { User } from './user.entity';
 
 @Injectable()
 export class UsersService {
-    constructor(@InjectRepository(User)
-    private usersRepository: Repository<User>) {}
+    constructor(
+        @InjectRepository(User)
+        private usersRepository: Repository<User>,
+    ) {}
 
     //get all users
     async findAll(): Promise<User[]> {
