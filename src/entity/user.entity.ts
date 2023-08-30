@@ -4,6 +4,7 @@ import { RegisteredTime } from './registeredTime.entity';
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
+    @OneToMany(() => RegisteredTime, registeredTime => registeredTime.user_id)
     id: number;
 
     @Column({length: 45})
@@ -14,8 +15,4 @@ export class User {
 
     @Column({length: 45})
     role: string;
-
-    @Column()
-    @OneToMany(() => RegisteredTime, registeredTime => registeredTime.user_id)
-    registeredTimes: [];
 }

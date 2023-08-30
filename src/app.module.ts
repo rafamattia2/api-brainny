@@ -1,14 +1,16 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './model/users.module';
+import { UsersModule } from './module/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { RegisteredTimeModule } from './module/registeredTime.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     UsersModule,
+    RegisteredTimeModule,
     TypeOrmModule.forRoot({
       type: process.env.DB_TYPE as any,
       host: process.env.PG_HOST,

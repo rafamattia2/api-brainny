@@ -6,12 +6,12 @@ export class RegisteredTime {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => User, user => user.registeredTimes)
+    @ManyToOne(() => User, user => user.id)
     user_id: number;
 
-    @Column({ type: 'timestamp' })
-    time_start: Date;
+    @Column({ type: 'date' })
+    registered_day: Date;
 
-    @Column({ type: 'timestamp'  })
-    time_end: Date;
+    @Column({ type: 'time' })
+    registered_time: Date;
 }
