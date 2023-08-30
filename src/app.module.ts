@@ -1,10 +1,17 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+<<<<<<< HEAD
 import { UsersModule } from './app/module/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { RegisteredTimeModule } from './app/module/registeredTime.module';
+=======
+import { UsersModule } from './module/users.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
+import { RegisteredTimeModule } from './module/registeredTime.module';
+>>>>>>> c9145fc2397de69ec435751b33506820a0df15a9
 
 @Module({
   imports: [
