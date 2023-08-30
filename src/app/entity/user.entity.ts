@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, BeforeInsert } from 'typeorm';
 import { RegisteredTime } from './registeredTime.entity';
 import { hashSync } from 'bcrypt';
+
 @Entity()
 export class User {
     @PrimaryGeneratedColumn('uuid')

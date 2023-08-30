@@ -8,6 +8,7 @@ import { RegisteredTime } from 'src/app/entity/registeredTime.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([User, RegisteredTime])],
   controllers: [UsersController],
-  providers: [UsersService]
+  providers: [UsersService],
+  exports: [UsersService]
 })
 export class UsersModule {}
