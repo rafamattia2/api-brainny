@@ -1,6 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, BeforeInsert } from 'typeorm';
 import { RegisteredTime } from './registeredTime.entity';
 import { hashSync } from 'bcrypt';
+import { Role } from '../../helpers/enums/roles.enums';
+import { IsString } from 'class-validator';
 
 @Entity()
 export class User {
@@ -29,8 +31,12 @@ export class User {
     @DeleteDateColumn({ name: 'deleted_at' })
     deletedAt: string;
 
-    @Column({length: 45})
-    role: string;
+    @Column({ 
+        name: 'role', 
+        type: 'enum',
+        enum: Role 
+    })
+    role: Role;
 
     @BeforeInsert()
     hashPassword() {

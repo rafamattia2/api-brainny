@@ -8,7 +8,7 @@ export class RegisteredTime {
 
     @ManyToOne(() => User, user => user.id)
     @Column({ name: 'user_id'})
-    userId: number;
+    userId: string;
 
     @Column({ name:'registered_day', type: 'date' })
     registeredDay: Date;

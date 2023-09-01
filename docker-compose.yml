@@ -5,6 +5,8 @@ services:
     container_name: nestapp
     image: rafamattia/nestapp:1.0.0
     build: .
+    restart: always
+    command: sh -c "npm run && npm run start:dev"
     ports:
       - 3000:3000
     environment:

@@ -1,6 +1,7 @@
-import { IsEmail, IsNotEmpty, Matches } from "class-validator";
+import { IsEmail, IsEnum, IsNotEmpty, Matches } from "class-validator";
 import { MessagesHelper } from "src/helpers/messages.helper";
 import { RegExHelper } from "src/helpers/regex.helper";
+import { Role } from "../../helpers/enums/roles.enums";
 
 export class CreateUserDto {
     @IsNotEmpty()
@@ -18,5 +19,6 @@ export class CreateUserDto {
     password: string;
 
     @IsNotEmpty()
-    role: string;
+    @IsEnum(Role)
+    role: Role;
 }

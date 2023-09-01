@@ -11,7 +11,7 @@ export class AuthService {
     async validateUser(email: string, password: string) {
         let user: User;
         try {
-            user = await this.userService.findOneByOrFail({email});
+            user = await this.userService.findOneByEmail(email);
         } catch (error) {
             return null
         }
