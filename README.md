@@ -31,7 +31,7 @@ docker compose up
 Neste [LINK](https://www.youtube.com/watch?v=HY97vXn4uVQ) eu explico como foi o processo de desenvolvimento desta API.
 # Autor
 
-Rafael de mattia
+Rafael de Mattia
 
 https://www.linkedin.com/in/rafamattia2
 
