@@ -22,7 +22,7 @@ import { AllowedRolesByUserTypeGuard } from 'src/auth/guard/role.guard';
 
 
 @Controller('api/users')
-// @UseGuards(AllowedRolesByUserTypeGuard)
+// @UseGuards(AuthGuard('jwt'), AllowedRolesByUserTypeGuard)
 export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
@@ -51,13 +51,15 @@ l
     @Roles(Role.ADMIN)
     async update(
         @Param('id', new ParseUUIDPipe()) id: string, 
-        @Body() body: UpdateUserDto): Promise<User> 
+        @Body() body: UpdateUserDto
+        ): Promise<User> 
         {
-        return this.usersService.update(id, body);
+            return this.usersService.update(id, body);
     }
 
     @Delete(':id')
     @UseGuards(AuthGuard('jwt'), AllowedRolesByUserTypeGuard)
+    @Roles(Role.ADMIN)
     @HttpCode(HttpStatus.NO_CONTENT)
     async delete(@Param('id', new ParseUUIDPipe()) id: string): Promise<void> {
         await this.usersService.delete(id)

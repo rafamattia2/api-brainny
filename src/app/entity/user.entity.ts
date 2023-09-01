@@ -2,7 +2,6 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn, Up
 import { RegisteredTime } from './registeredTime.entity';
 import { hashSync } from 'bcrypt';
 import { Role } from '../../helpers/enums/roles.enums';
-import { IsString } from 'class-validator';
 
 @Entity()
 export class User {
