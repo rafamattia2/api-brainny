@@ -14,7 +14,6 @@ export class UsersService {
 
     //get all users
     async findAll(): Promise<User[]> {
-        console.log('entrei na service uhules')
         return await this.usersRepository.find({ 
             select: ['id', 'firstName', 'lastName', 'email']
         });
@@ -23,7 +22,6 @@ export class UsersService {
     //get one user by email
     async findOneByEmail(email: string): Promise<User>{
         try {
-            console.log(email);
             return await this.usersRepository.findOneByOrFail({email});
         } catch (error) {
             throw new NotFoundException(error.message)

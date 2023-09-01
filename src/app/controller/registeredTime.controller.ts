@@ -5,6 +5,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { AllowedRolesByUserTypeGuard } from 'src/auth/guard/role.guard';
 import { Roles } from 'src/auth/guard/roles.decorator';
 import { Role } from 'src/helpers/enums/roles.enums';
+import { CreateRegisterDto } from '../dto/create-register.dto';
 
 @Controller('api/registered_time')
 export class RegisteredTimeController {
@@ -31,7 +32,7 @@ export class RegisteredTimeController {
     @Post()
     @UseGuards(AuthGuard('jwt'), AllowedRolesByUserTypeGuard)
     @Roles(Role.CUSTOMER)
-    async create (@Body() register: RegisteredTime): Promise<RegisteredTime> {
+    async create (@Body() register: CreateRegisterDto): Promise<RegisteredTime> {
         return await this.registeredTimeService.create(register);
     }
 

@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, Timestamp } from 'typeorm';
 import { User } from './user.entity';
 
 @Entity()
@@ -10,9 +10,6 @@ export class RegisteredTime {
     @Column({ name: 'user_id'})
     userId: string;
 
-    @Column({ name:'registered_day', type: 'date' })
-    registeredDay: Date;
-
-    @Column({ name:'registered_time', type: 'time' })
-    registered_time: Date;
+    @Column({ name:'registered_date', type: 'timestamp' })
+    registeredDate: Timestamp;
 }

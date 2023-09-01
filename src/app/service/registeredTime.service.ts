@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { RegisteredTime } from '../entity/registeredTime.entity';
+import { CreateRegisterDto } from '../dto/create-register.dto';
 
 @Injectable()
 export class RegisteredTimeService {
@@ -21,7 +22,7 @@ export class RegisteredTimeService {
     }
 
     //create register
-    async create(registeredTime: RegisteredTime): Promise<RegisteredTime> {
+    async create(registeredTime: CreateRegisterDto): Promise<RegisteredTime> {
         const newRegister = this.registeredTimeRepository.create(registeredTime);
         return await this.registeredTimeRepository.save(newRegister);
     }
