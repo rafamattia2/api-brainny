@@ -13,8 +13,13 @@ Esta API foi desenvolvida durante a etapa de teste técnico para uma vaga Back-E
 - [Docker](https://www.docker.com/)
 - [Postgresql](https://www.postgresql.org/)
 
+## Para testar as requests:
+- [Insomnia](https://insomnia.rest/)
+
 # Como executar o projeto
-Tanto a API como o banco de dados estão dentro de container. Para isso, basta utilizar o docker compose para criar as iso's e subir a API.
+Tanto a API como o banco de dados estão dentro de um container. Para isso, basta utilizar o docker compose para criar as iso's e subir a API.
+Para testar as requests da API, basta importar no Insomnia o arquivo "insomnia-api-brainny".
+
 ```bash
 # clonar repositório
 git clone https://github.com/rafamattia2/api-brainny.git
